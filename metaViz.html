@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Utah Digital Newspaper Archive Visualizer Meta Viz</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+
+<body class="bg-green-50">
+  <div class="flex items-center justify-center">
+    <a href="index.html" class="text-blue-500 hover:underline text-center py-5 text-2xl font-bold hover:text-blue-700 hover:text-3xl">Go back to Index</a>
+  </div>
+  <div class="flex items-center justify-center">
+    <div class="grid content-center text-4xl font-bold">
+      Meta Visualizations
+    </div>
+  </div>
+  <div class="flex items-center justify-center py-5">
+    <div class="grid content-center">
+      <div class="text-center text-2xl font-bold">
+        Newspaper Publications by county bubble chart
+        <div id="pub-bubble-chart-div">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center text-2xl font-bold pt-20">
+    Newspaper Count in UDN Archive
+  </div>
+  <div class="flex items-center justify-center">
+    <div>
+      <span class="info-text" id="newspaper-count-city-text">Publication City/Town:</span>
+    </div>
+    <div>
+      <span class="info-text" id="newspaper-count-county-text">Publication County:</span>
+    </div>
+  </div>
+  <div id="newspaper-count-div" class="flex items-center justify-center">
+    <div id="newspaper-count-location">
+    </div>
+  </div>
+
+
+  <div class="row chart">
+    <div class="chart">
+      <div id="newspaper-count-location">
+
+      </div>
+      <div id="newspaper-bubble-count-div">
+      </div>
+    </div>
+  </div>
+  <div class="text-center text-2xl font-bold pt-20">
+    Geographic newspaper information
+  </div>
+  <div class="flex items-center justify-center">
+    <div id="map-highlighted-location-div" class="mr-4">
+      <div><span class="info-text"> </span></div>
+      <div>
+        <span class="info-text" id="map-highlighted-city-text">Highlighted City/Town: County:</span>
+      </div>
+      <div>
+        <span class="info-text" id="map-highlighted-county-text">Highlighted City/Town: County:</span>
+      </div>
+      <div id="utah-map-div">
+        <svg id="utah-map-svg">
+          <g id="utah-boundary"></g>
+        </svg>
+      </div>
+    </div>
+    <div id="utah-map-selected-city">
+      <div>
+        <span class="info-text" id="map-selected-city-text">Selected City/Town: County:</span>
+      </div>
+      <div id="utah-map-selected-city">
+        <div>
+          <span class="info-text" id="map-selected-county-text">Selected City/Town: County:</span>
+        </div>
+      </div>
+      <div><span class="info-text"> </span></div>
+      <div id="utah-map-table-div"></div>
+    </div>
+  </div>
+  <div class="text-center text-2xl font-bold pt-20 py-5">
+    Newspaper publications timeline
+  </div>
+  <div class="row chart flex items-center justify-center">
+    <div id="newspaper-timeline-div">
+    </div>
+    <div><span class="info-text"> </span></div>
+    <div id="timeline-highlighted-paper-div">
+      <div>
+        <span class="info-text" id="timeline-highlighted-paper-name">Highlighted Newspaper:</span>
+      </div>
+      <div>
+        <span class="info-text" id="timeline-highlighted-paper-city">Location:</span>
+      </div>
+      <div>
+        <span class="info-text" id="timeline-highlighted-paper-startDate">First date in UDN Archive:</span>
+      </div>
+      <div>
+        <span class="info-text" id="timeline-highlighted-paper-endDate">Last date in UDN Archive:</span>
+      </div>
+      <div>
+        <span class="info-text" id="timeline-highlighted-paper-count">Number of papers in UDN Archive:</span>
+      </div>
+    </div>
+  </div>
+  <div><span class="info-text"> </span></div>
+</body>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="js/Publication.js"></script>
+<script src="js/PublicationAnalysisTest.js"></script>
+<script src="js/Map.js"></script>
+<script src="js/Timeline.js"></script>
+<script src="js/NewspaperUtils.js"></script>
+<script src="js/BarChart.js" defer></script>
+<script src="js/line.js"></script>
+<script src="js/metaScript.js" defer></script>
+
+</html>

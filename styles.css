@@ -1,0 +1,192 @@
+#newspaper-count-settings {
+    /* I think this looks a little ugly, but we can play around with stuff. */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* More attractive range sliders:
+https://www.w3schools.com/howto/howto_js_rangeslider.asp */
+.newspaper-count-slider-container {
+    display: grid;
+    row-gap: 4px;
+    width: 1200px;
+} 
+.axStyle
+{
+    font-size: 5px;
+}
+.infoLineColorStyle
+{
+    font-size: 10px;
+}
+.infoLineColorStyleHighlighted
+{
+    font-size: 15px;
+}
+.lineStyle
+{
+    stroke-width: 2;
+    fill: none;
+}
+#line-chart {
+    width: 725px;
+    height: 550px;
+}
+#line-chart-info {
+    width: 900px;
+    height: 650px;
+}
+.range-slider {
+    grid-column: 3/18;
+    appearance: none;
+    width: 80%;
+    height: 15px;
+    border-radius: 15px;
+    vertical-align: middle;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.range-slider:hover {
+    opacity: 1;
+}
+
+.hovered {
+    stroke: #979696;
+    stroke-width: 6;
+    fill: none;
+  }
+
+.range-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #000000;
+    cursor: pointer;
+}
+
+.range-slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #000000;
+    cursor: pointer;
+}
+
+.range-slider-label {
+    grid-column: 1/12;
+    /* This is a bad way to do width, but works for now */
+    /* width: 140px; */
+    vertical-align: middle;
+    padding-left: 18px;
+    /* text-align: center; */
+    font-size: 18px;
+}
+
+#newspaper-count-minimum-slider {
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#minimum-slider-label {
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#newspaper-count-maximum-slider {
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#maximum-slider-label {
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#utah-map-svg {
+    padding: 10px;
+    fill: none;
+}
+
+.county {
+    stroke: #999999;
+    stroke-width: 1px;
+    fill: none;
+}
+
+/* .county:hover {
+    stroke: black;
+    stroke-width: 5px;
+    fill: lightgray;
+} */
+
+.state-boundary {
+    stroke: #000000;
+    stroke-width: 1.5px;
+}
+
+.city {
+    fill: #f08080;
+    stroke: none;
+}
+
+.info-label {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+    font-weight: bold;
+    /* grid-column: 1/12; */
+    /* This is a bad way to do width, but works for now */
+    /* width: 140px; */
+    /* vertical-align: middle; */
+    /* padding-left: 18px; */
+    /* text-align: center; */
+    /* font-size: 18px; */
+}
+
+.info-text {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 50px;
+}
+
+#vertical-scroll-timeline-div {
+    overflow-y: scroll;
+    width: 1020px;
+    height: 389px;
+    transform: translate(0px, 22px);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#stationary-timeline-svg {
+    width: 1020px;
+    height: 440px;
+    border-color: gray;
+    border-width: 1px;
+}
+
+#newspaper-timeline-div {
+    height: 440px;
+}

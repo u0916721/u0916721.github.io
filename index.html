@@ -1,137 +1,506 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <link rel="stylesheet" type="text/css" href="https://u0916721.github.io/style.css">
-  <link href="https://js-parsons.github.io/js/js-parsons/parsons.css" rel="stylesheet">
-  <link href="https://js-parsons.github.io/js/js-parsons/lib/prettify.css" rel="stylesheet">
-  <script src="https://js-parsons.github.io/js/js-parsons/lib/jquery.min.js"></script>
-  <script src="https://js-parsons.github.io/js/js-parsons/lib/jquery-ui.min.js"></script>
-  <script src="https://js-parsons.github.io/js/jquery.ui.touch-punch.min.js"></script>
-  <script src="https://js-parsons.github.io/js/js-parsons/lib/skulpt.js"></script>
-  <script src="https://js-parsons.github.io/js/js-parsons/lib/skulpt-stdlib.js"></script>
-  <script src="https://js-parsons.github.io/js/js-parsons/lib/underscore-min.js"></script>
-  <script src="https://js-parsons.github.io/js/js-parsons/lib/lis.js"></script>
-  <script src="https://js-parsons.github.io/js/js-parsons/lib/jquery.sound.js"></script>
-  <script src="https://js-parsons.github.io/js/js-parsons/lib/prettify.js"></script>
-  <script src="https://js-parsons.github.io/js/js-parsons/parsons.js"></script>
-      <meta charset="UTF-8">
-      <script src="https://js-parsons.github.io/js/js-parsons/lib/jquery.min.js"></script>
-      <script src="https://js-parsons.github.io/js/js-parsons/lib/jquery-ui.min.js"></script>
-      <script src="https://js-parsons.github.io/js/jquery.ui.touch-punch.min.js"></script>
-      <script src="https://js-parsons.github.io/js/js-parsons/lib/skulpt.js"></script>
-      <script src="https://js-parsons.github.io/js/js-parsons/lib/skulpt-stdlib.js"></script>
-      <script src="https://js-parsons.github.io/js/js-parsons/lib/underscore-min.js"></script>
-      <script src="https://js-parsons.github.io/js/js-parsons/lib/lis.js"></script>
-      <script src="https://js-parsons.github.io/js/js-parsons/lib/jquery.sound.js"></script>
-      <script src="https://js-parsons.github.io/js/js-parsons/lib/prettify.js"></script>
-      <script src="https://js-parsons.github.io/js/js-parsons/parsons.js"></script>
-</head>
-<body>
-<h1>Welcome!</h1>
-<h2 id="parsons-iterative">Parsons Iterative</h2>
-<p>A biologist wants you to write some code that simulates invasive animal population growth. The code returns the population before it crashes(no more food). Every season the food amount grows by 2000, but the population doubles if they have enough food.</p>
-<div id="itterativeProblem1-sortableTrash" class="sortable-code"></div>
-<div id="itterativeProblem1-sortable" class="sortable-code"></div>
-<div style="clear:both;"></div>
-<p>
-    <input id="itterativeProblem1-feedbackLink" value="Get Feedback" type="button" />
-    <input id="itterativeProblem1-newInstanceLink" value="Reset Problem" type="button" />
-</p>
-<script type="text/javascript">
-(function(){
-  var initial = "public static int popualtionGrowth(int food,int population)\n" +
-    "{\n" +
-    "while(food - population &gt; 0)\n" +
-    "{\n" +
-    "food = food - population + 2000; //Population eats\n" +
-    "population = population * 2;//population grows after eating\n" +
-    "}\n" +
-    "return population;\n" +
-    "}";
-  var parsonsPuzzle = new ParsonsWidget({
-    "sortableId": "itterativeProblem1-sortable",
-    "max_wrong_lines": 10,
-    "grader": ParsonsWidget._graders.LineBasedGrader,
-    "exec_limit": 2500,
-    "can_indent": true,
-    "x_indent": 50,
-    "lang": "en",
-    "show_feedback": true
-  });
-  parsonsPuzzle.init(initial);
-  parsonsPuzzle.shuffleLines();
-  $("#itterativeProblem1-newInstanceLink").click(function(event){
-      event.preventDefault();
-      parsonsPuzzle.shuffleLines();
-  });
-  $("#itterativeProblem1-feedbackLink").click(function(event){
-      event.preventDefault();
-      parsonsPuzzle.getFeedback();
-  });
-})();
-</script>
-<h2 id="parsons-iterative">Parsons Recursive</h2>
-<p>Now construct the recursive solution</p>
-<div id="recursiveProblem1-sortableTrash" class="sortable-code"></div>
-<div id="recursiveProblem1-sortable" class="sortable-code"></div>
-<div style="clear:both;"></div>
-<p>
-    <input id="recursiveProblem1-feedbackLink" value="Get Feedback" type="button" />
-    <input id="recursiveProblem1-newInstanceLink" value="Reset Problem" type="button" />
-</p>
-<script type="text/javascript">
-(function(){
-  var initial = "public static int recursivePopulation(int food, int population)\n" +
-    "{\n" +
-    "if(food - population &lt; 0)\n" +
-    "{\n" +
-    "return population;\n" +
-    "}\n" +
-    "return recursivePopulation(food-population+2000, population * 2);\n" +
-    "}";
-  var parsonsPuzzle = new ParsonsWidget({
-    "sortableId": "recursiveProblem1-sortable",
-    "max_wrong_lines": 10,
-    "grader": ParsonsWidget._graders.LineBasedGrader,
-    "exec_limit": 2500,
-    "can_indent": true,
-    "x_indent": 50,
-    "lang": "en",
-    "show_feedback": true
-  });
-  parsonsPuzzle.init(initial);
-  parsonsPuzzle.shuffleLines();
-  $("#recursiveProblem1-newInstanceLink").click(function(event){
-      event.preventDefault();
-      parsonsPuzzle.shuffleLines();
-  });
-  $("#recursiveProblem1-feedbackLink").click(function(event){
-      event.preventDefault();
-      parsonsPuzzle.getFeedback();
-  });
-})();
-</script>
-<p>
-  Your friend is writting some recursive code, but for some reason it is not working!
-  What is wrong with the code below?
-</p>
-<img src="https://raw.githubusercontent.com/u0916721/u0916721.github.io/main/Wrong2.JPG" class="img-fluid" alt="Bad code">
-<form>
-  <div class="form-group">
-  <label for="exampleFormControlTextarea1">Answer here</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
-</form>
-Write the correct solution below
-<form>
-  <div class="form-group">
-  <label for="exampleFormControlTextarea1">Answer here</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">public static int factorial(int n)
-    {
-      //Solution goes here
-    }</textarea>
-</div>
-</form>
-<button type="submit" class="btn btn-primary" onclick="location.href='https://raw.githubusercontent.com/u0916721/u0916721.github.io/main/nice.gif'"  >Submit</button>
+  <meta charset="UTF-8" />
+  <title>Utah Digital Newspaper Archive Visualizer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+
+<body class="bg-green-50">
+  <div class="flex items-center justify-center">
+    <div class="grid content-center text-4xl font-bold">
+      Newspaper Word trend visualization
+    </div>
+  </div>
+  <div class="flex items-center justify-center">
+    <a href="metaViz.html" class="text-blue-500 hover:underline text-center py-5 text-2xl font-bold hover:text-blue-700 hover:text-3xl">Additional Visualizations</a>
+  </div>
+  <div class="flex items-center justify-center">
+    <a href="video.html" class="text-blue-500 hover:underline text-center py-5 text-2xl font-bold hover:text-blue-700 hover:text-3xl">Video & info</a>
+  </div>
+  <div class="flex px-2 py-5">
+    <div class="px-2">
+      <select name="paperSelector" id="paperSelector">
+        <option selected value="All Papers">All Papers</option>
+        <option value="Salt Lake Tribune">Salt Lake Tribune</option>
+        <option value="University of Utah Student Newspapers">University of Utah Student Newspapers</option>
+        <option value="Deseret News">Deseret News</option>
+        <option value="Ahora Utah">Ahora Utah</option>
+        <option value="Alta Independent">Alta Independent</option>
+        <option value="American Fork Citizen">American Fork Citizen</option>
+        <option value="American Fork Item">American Fork Item</option>
+        <option value="American Fork World">American Fork World</option>
+        <option value="Anti-Polygamy Standard">Anti-Polygamy Standard</option>
+        <option value="Argus">Argus</option>
+        <option value="Basin Newsprint">Basin Newsprint</option>
+        <option value="Basin Newsprint and Nickel Ads">Basin Newsprint and Nickel Ads</option>
+        <option value="Basin Nickel Ads">Basin Nickel Ads</option>
+        <option value="Bear River Valley Leader">Bear River Valley Leader</option>
+        <option value="Beaver County Blade">Beaver County Blade</option>
+        <option value="Beaver County Monitor">Beaver County Monitor</option>
+        <option value="Beaver County News">Beaver County News</option>
+        <option value="Beaver Press">Beaver Press</option>
+        <option value="Bee">Bee</option>
+        <option value="Ben Lomond Beacon">Ben Lomond Beacon</option>
+        <option value="Beryl Colonizer">Beryl Colonizer</option>
+        <option value="Bikuben">Bikuben</option>
+        <option value="Bingham Bulletin">Bingham Bulletin</option>
+        <option value="Bingham News">Bingham News</option>
+        <option value="Blanding Outlook">Blanding Outlook</option>
+        <option value="Box Elder Journal">Box Elder Journal</option>
+        <option value="Box Elder News">Box Elder News</option>
+        <option value="Box Elder News Journal">Box Elder News Journal</option>
+        <option value="Brigham City Bugler">Brigham City Bugler</option>
+        <option value="Brigham City Report">Brigham City Report</option>
+        <option value="Brigham Young High School Student Newspapers">Brigham Young High School Student Newspapers
+        </option>
+        <option value="Brighton Record">Brighton Record</option>
+        <option value="Broad Ax">Broad Ax</option>
+        <option value="Bussei Life">Bussei Life</option>
+        <option value="Cache American">Cache American</option>
+        <option value="Cache Citizen">Cache Citizen</option>
+        <option value="Cache Valley Clarion">Cache Valley Clarion</option>
+        <option value="Cache Valley Daily Herald">Cache Valley Daily Herald</option>
+        <option value="Canyon Country Zephyr">Canyon Country Zephyr</option>
+        <option value="Carbon County News">Carbon County News</option>
+        <option value="Castle Valley Times">Castle Valley Times</option>
+        <option value="Centerville Newsette">Centerville Newsette</option>
+        <option value="Central City News">Central City News</option>
+        <option value="Citizen">Citizen</option>
+        <option value="Clearfield Courier">Clearfield Courier</option>
+        <option value="Coalville Times">Coalville Times</option>
+        <option value="Corinne Daily Journal">Corinne Daily Journal</option>
+        <option value="Corinne Daily Mail">Corinne Daily Mail</option>
+        <option value="Corinne Journal Reporter">Corinne Journal Reporter</option>
+        <option value="Corriere d'America">Corriere d'America</option>
+        <option value="Cottonwood Observer">Cottonwood Observer</option>
+        <option value="Daggett County Record and Flaming Gorge Journal">Daggett County Record and Flaming Gorge Journal
+        </option>
+        <option value="Daily Record">Daily Record</option>
+        <option value="Daily Utah State Journal">Daily Utah State Journal</option>
+        <option value="Davis County Argus">Davis County Argus</option>
+        <option value="Davis County Clipper">Davis County Clipper</option>
+        <option value="Davis County Clipper Today">Davis County Clipper Today</option>
+        <option value="Davis County Journal">Davis County Journal</option>
+        <option value="Davis News Journal">Davis News Journal</option>
+        <option value="Davis Reflex-Journal">Davis Reflex-Journal</option>
+        <option value="Deseret Evening News">Deseret Evening News</option>
+        <option value="Deseret Farmer">Deseret Farmer</option>
+        <option value="Deseret Gazette">Deseret Gazette</option>
+        <option value="Deseret Reefer">Deseret Reefer</option>
+        <option value="Deseret Sampler">Deseret Sampler</option>
+        <option value="Deseret Weekly">Deseret Weekly</option>
+        <option value="Dixie Advocate">Dixie Advocate</option>
+        <option value="Dixie Falcon">Dixie Falcon</option>
+        <option value="Dixie State University Student Newspapers">Dixie State University Student Newspapers</option>
+        <option value="Dodge City News">Dodge City News</option>
+        <option value="Dragerton Tribune">Dragerton Tribune</option>
+        <option value="Duchesne Courier">Duchesne Courier</option>
+        <option value="Duchesne Eagle">Duchesne Eagle</option>
+        <option value="Duchesne Record">Duchesne Record</option>
+        <option value="East Salt Lake Times">East Salt Lake Times</option>
+        <option value="Eastern Utah Advocate">Eastern Utah Advocate</option>
+        <option value="Eastern Utah Telegraph">Eastern Utah Telegraph</option>
+        <option value="El Sol">El Sol</option>
+        <option value="Emery County Progress">Emery County Progress</option>
+        <option value="Enoch's Advocate">Enoch's Advocate</option>
+        <option value="Ephraim Enterprise">Ephraim Enterprise</option>
+        <option value="Ergatis">Ergatis</option>
+        <option value="Eureka Reporter">Eureka Reporter</option>
+        <option value="Farmer's Oracle">Farmer's Oracle</option>
+        <option value="Fillmore Progress">Fillmore Progress</option>
+        <option value="Garfield Beach">Garfield Beach</option>
+        <option value="Garfield County News">Garfield County News</option>
+        <option value="Garfield Leader">Garfield Leader</option>
+        <option value="Garland City Globe">Garland City Globe</option>
+        <option value="Garland Globe">Garland Globe</option>
+        <option value="Garland Times">Garland Times</option>
+        <option value="Goodwin's Weekly">Goodwin's Weekly</option>
+        <option value="Grand Valley Times">Grand Valley Times</option>
+        <option value="Grantsville Gazette">Grantsville Gazette</option>
+        <option value="Grantsville News">Grantsville News</option>
+        <option value="Grantsville News-Observer">Grantsville News-Observer</option>
+        <option value="Grantsville Reflex">Grantsville Reflex</option>
+        <option value="Green River Dispatch">Green River Dispatch</option>
+        <option value="Green River Journal">Green River Journal</option>
+        <option value="Gunnison Gazette">Gunnison Gazette</option>
+        <option value="Gunnison Valley News">Gunnison Valley News</option>
+        <option value="Heber Herald">Heber Herald</option>
+        <option value="Helper Journal">Helper Journal</option>
+        <option value="Helper Times">Helper Times</option>
+        <option value="Hill Air Force Base Newspapers">Hill Air Force Base Newspapers</option>
+        <option value="Huntington Echo">Huntington Echo</option>
+        <option value="Il Minatore">Il Minatore</option>
+        <option value="Inter-Mountain Educator">Inter-Mountain Educator</option>
+        <option value="Inter-Mountain Farmer">Inter-Mountain Farmer</option>
+        <option value="Inter-Mountain Mining Review">Inter-Mountain Mining Review</option>
+        <option value="Inter-Mountain Republican">Inter-Mountain Republican</option>
+        <option value="Intermountain Catholic">Intermountain Catholic</option>
+        <option value="Intermountain Commercial Record">Intermountain Commercial Record</option>
+        <option value="Iron County News">Iron County News</option>
+        <option value="Iron County Record">Iron County Record</option>
+        <option value="Juab County Times">Juab County Times</option>
+        <option value="Junction City">Junction City</option>
+        <option value="Kamas Courant">Kamas Courant</option>
+        <option value="Kane County Independent">Kane County Independent</option>
+        <option value="Kane County Standard">Kane County Standard</option>
+        <option value="Kaysville Eagle">Kaysville Eagle</option>
+        <option value="Kaysville Weekly Reflex">Kaysville Weekly Reflex</option>
+        <option value="Keepapitchinin">Keepapitchinin</option>
+        <option value="La Prensa">La Prensa</option>
+        <option value="Lakeside Review">Lakeside Review</option>
+        <option value="Lakeside Review North Edition">Lakeside Review North Edition</option>
+        <option value="Lakeside Review South Edition">Lakeside Review South Edition</option>
+        <option value="Latter-day Saints' University Student Newspapers">Latter-day Saints' University Student
+          Newspapers</option>
+        <option value="Layton Journal">Layton Journal</option>
+        <option value="Layton News Express">Layton News Express</option>
+        <option value="Lehi Banner">Lehi Banner</option>
+        <option value="Lehi Free Press">Lehi Free Press</option>
+        <option value="Lehi Sun">Lehi Sun</option>
+        <option value="Living Issues">Living Issues</option>
+        <option value="Logan Herald Journal">Logan Herald Journal</option>
+        <option value="Logan Journal">Logan Journal</option>
+        <option value="Logan Leader">Logan Leader</option>
+        <option value="Logan Nation">Logan Nation</option>
+        <option value="Logan Republican">Logan Republican</option>
+        <option value="Magna Times">Magna Times</option>
+        <option value="Mammoth Record">Mammoth Record</option>
+        <option value="Manti Home Sentinel">Manti Home Sentinel</option>
+        <option value="Manti Messenger">Manti Messenger</option>
+        <option value="Manti Reporter">Manti Reporter</option>
+        <option value="Marysvale Free Lance">Marysvale Free Lance</option>
+        <option value="Marysvale Progress">Marysvale Progress</option>
+        <option value="Mercur Miner">Mercur Miner</option>
+        <option value="Midvale Journal Sentinel">Midvale Journal Sentinel</option>
+        <option value="Midvale Messenger">Midvale Messenger</option>
+        <option value="Milford Monitor">Milford Monitor</option>
+        <option value="Milford News">Milford News</option>
+        <option value="Millard County Blade">Millard County Blade</option>
+        <option value="Millard County Chronicle">Millard County Chronicle</option>
+        <option value="Millard County Chronicle Progress">Millard County Chronicle Progress</option>
+        <option value="Millard County Progress">Millard County Progress</option>
+        <option value="Millard County Progress Review">Millard County Progress Review</option>
+        <option value="Monroe Record">Monroe Record</option>
+        <option value="Morgan County Independent">Morgan County Independent</option>
+        <option value="Morgan County News">Morgan County News</option>
+        <option value="Morgan County Star">Morgan County Star</option>
+        <option value="Morgan Post">Morgan Post</option>
+        <option value="Mountain Flower">Mountain Flower</option>
+        <option value="Mountain Times Weekly">Mountain Times Weekly</option>
+        <option value="Mountain West Minority Reporter and Sentinel">Mountain West Minority Reporter and Sentinel
+        </option>
+        <option value="Mountaineer">Mountaineer</option>
+        <option value="Mt. Pleasant Pyramid">Mt. Pleasant Pyramid</option>
+        <option value="Mundo Hispano">Mundo Hispano</option>
+        <option value="Mundo Latino">Mundo Latino</option>
+        <option value="Murray Eagle">Murray Eagle</option>
+        <option value="Myton Free Press">Myton Free Press</option>
+        <option value="National Enterprise and Utah Enterprise Review">National Enterprise and Utah Enterprise Review
+        </option>
+        <option value="Natural Government Weekly">Natural Government Weekly</option>
+        <option value="Neighbor">Neighbor</option>
+        <option value="Neighborhood Booster">Neighborhood Booster</option>
+        <option value="Nephi Blade">Nephi Blade</option>
+        <option value="Nephi Ensign">Nephi Ensign</option>
+        <option value="Nephi Record">Nephi Record</option>
+        <option value="Nephi Republic">Nephi Republic</option>
+        <option value="Nephi Times-News">Nephi Times-News</option>
+        <option value="News Advocate">News Advocate</option>
+        <option value="Newspaper">Newspaper</option>
+        <option value="North Cache News">North Cache News</option>
+        <option value="Ogden Daily Commercial">Ogden Daily Commercial</option>
+        <option value="Ogden Daily Freeman">Ogden Daily Freeman</option>
+        <option value="Ogden Daily Pilot">Ogden Daily Pilot</option>
+        <option value="Ogden Daily Standard">Ogden Daily Standard</option>
+        <option value="Ogden Evening Standard">Ogden Evening Standard</option>
+        <option value="Ogden Herald">Ogden Herald</option>
+        <option value="Ogden Junction">Ogden Junction</option>
+        <option value="Ogden Morning Examiner">Ogden Morning Examiner</option>
+        <option value="Ogden Post">Ogden Post</option>
+        <option value="Ogden Semi-Weekly Junction">Ogden Semi-Weekly Junction</option>
+        <option value="Ogden Semi-Weekly Standard">Ogden Semi-Weekly Standard</option>
+        <option value="Ogden Standard-Examiner">Ogden Standard-Examiner</option>
+        <option value="Ogden Sun">Ogden Sun</option>
+        <option value="Ogden Valley News">Ogden Valley News</option>
+        <option value="Ogden Weekly Standard">Ogden Weekly Standard</option>
+        <option value="Orem-Geneva Times">Orem-Geneva Times</option>
+        <option value="Our Dixie Times">Our Dixie Times</option>
+        <option value="Panguitch Progress">Panguitch Progress</option>
+        <option value="Park City Call">Park City Call</option>
+        <option value="Park City Coalition">Park City Coalition</option>
+        <option value="Park Record">Park Record</option>
+        <option value="Parowan Times">Parowan Times</option>
+        <option value="Payson Chronicle">Payson Chronicle</option>
+        <option value="Payson Daily Times">Payson Daily Times</option>
+        <option value="Payson Globe Header">Payson Globe Header</option>
+        <option value="Paysonian">Paysonian</option>
+        <option value="Peep O' Day">Peep O' Day</option>
+        <option value="Piute Chieftain">Piute Chieftain</option>
+        <option value="Piute County News">Piute County News</option>
+        <option value="Piute Courant">Piute Courant</option>
+        <option value="Piute Pioneer">Piute Pioneer</option>
+        <option value="Pleasant Grove News">Pleasant Grove News</option>
+        <option value="Pleasant Grove Review">Pleasant Grove Review</option>
+        <option value="Progressive Independent">Progressive Independent</option>
+        <option value="Progressive Opinion">Progressive Opinion</option>
+        <option value="Provo American">Provo American</option>
+        <option value="Provo Daily Enquirer">Provo Daily Enquirer</option>
+        <option value="Provo Daily Herald">Provo Daily Herald</option>
+        <option value="Provo Dispatch">Provo Dispatch</option>
+        <option value="Provo Evening Herald">Provo Evening Herald</option>
+        <option value="Provo Post">Provo Post</option>
+        <option value="Provo Semi-Weekly Herald">Provo Semi-Weekly Herald</option>
+        <option value="Provo Sunday Herald">Provo Sunday Herald</option>
+        <option value="Provo Times">Provo Times</option>
+        <option value="Public Opinion">Public Opinion</option>
+        <option value="Rakki Jihō">Rakki Jihō</option>
+        <option value="Reflex Journal">Reflex Journal</option>
+        <option value="Reservation News">Reservation News</option>
+        <option value="Review">Review</option>
+        <option value="Rich County News">Rich County News</option>
+        <option value="Rich County Reaper">Rich County Reaper</option>
+        <option value="Richfield Reaper">Richfield Reaper</option>
+        <option value="Rio Virgen Times">Rio Virgen Times</option>
+        <option value="Rocky Mountain Oil and Mining Journal">Rocky Mountain Oil and Mining Journal</option>
+        <option value="Rocky Mountain Open Door">Rocky Mountain Open Door</option>
+        <option value="Rocky Mountain Review">Rocky Mountain Review</option>
+        <option value="Roosevelt Standard">Roosevelt Standard</option>
+        <option value="Round-Up">Round-Up</option>
+        <option value="Roy Sun">Roy Sun</option>
+        <option value="Rural Republican">Rural Republican</option>
+        <option value="S. A. Kenner's Utah Democrat">S. A. Kenner's Utah Democrat</option>
+        <option value="Salina Call">Salina Call</option>
+        <option value="Salina Sun">Salina Sun</option>
+        <option value="Salt Flat News">Salt Flat News</option>
+        <option value="Salt Lake City Argus">Salt Lake City Argus</option>
+        <option value="Salt Lake City Beobachter">Salt Lake City Beobachter</option>
+        <option value="Salt Lake City South High School Student Newspapers">Salt Lake City South High School Student
+          Newspapers</option>
+        <option value="Salt Lake Community College Student Newspapers">Salt Lake Community College Student Newspapers
+        </option>
+        <option value="Salt Lake Daily Independent">Salt Lake Daily Independent</option>
+        <option value="Salt Lake Daily Review">Salt Lake Daily Review</option>
+        <option value="Salt Lake Daily Telegraph">Salt Lake Daily Telegraph</option>
+        <option value="Salt Lake Democrat">Salt Lake Democrat</option>
+        <option value="Salt Lake Enterprise and Journal of Industry">Salt Lake Enterprise and Journal of Industry
+        </option>
+        <option value="Salt Lake Evening Chronicle">Salt Lake Evening Chronicle</option>
+        <option value="Salt Lake Herald-Republican">Salt Lake Herald-Republican</option>
+        <option value="Salt Lake Mining Review">Salt Lake Mining Review</option>
+        <option value="Salt Lake Model Neighborhood News">Salt Lake Model Neighborhood News</option>
+        <option value="Salt Lake Star">Salt Lake Star</option>
+        <option value="Salt Lake Telegram">Salt Lake Telegram</option>
+        <option value="Salt Lake Telegraph and Commercial Advertiser">Salt Lake Telegraph and Commercial Advertiser
+        </option>
+        <option value="Salt Lake Times">Salt Lake Times</option>
+        <option value="Salt Lake Times The Organ of Amusements">Salt Lake Times The Organ of Amusements</option>
+        <option value="Salt Lake Weekly Telegraph">Salt Lake Weekly Telegraph</option>
+        <option value="Salt Lake Weekly Tribune">Salt Lake Weekly Tribune</option>
+        <option value="San Juan Record">San Juan Record</option>
+        <option value="San Pete Free Press">San Pete Free Press</option>
+        <option value="Sandy City Star">Sandy City Star</option>
+        <option value="Sanpete County Register">Sanpete County Register</option>
+        <option value="Sanpete Messenger Gunnison Valley Edition">Sanpete Messenger Gunnison Valley Edition</option>
+        <option value="Seagull">Seagull</option>
+        <option value="Searchlight">Searchlight</option>
+        <option value="Sevier Sun">Sevier Sun</option>
+        <option value="Silver Reef Miner">Silver Reef Miner</option>
+        <option value="Smithfield Sentinel">Smithfield Sentinel</option>
+        <option value="South Cache Courier">South Cache Courier</option>
+        <option value="South Salt Lake Herald">South Salt Lake Herald</option>
+        <option value="South Salt Lake News">South Salt Lake News</option>
+        <option value="Southeast Independent">Southeast Independent</option>
+        <option value="Southern Censor">Southern Censor</option>
+        <option value="Southern Salt Lake County Enterprise">Southern Salt Lake County Enterprise</option>
+        <option value="Southern Utah News">Southern Utah News</option>
+        <option value="Southern Utah Star">Southern Utah Star</option>
+        <option value="Southern Utah Times">Southern Utah Times</option>
+        <option value="Southern Utah University Student Newspapers">Southern Utah University Student Newspapers</option>
+        <option value="Southern Utonian">Southern Utonian</option>
+        <option value="Spanish Fork Herald">Spanish Fork Herald</option>
+        <option value="Spanish Fork Press">Spanish Fork Press</option>
+        <option value="Spanish Fork Sun">Spanish Fork Sun</option>
+        <option value="Springville Herald">Springville Herald</option>
+        <option value="Springville Independent">Springville Independent</option>
+        <option value="St. George Enterprise">St. George Enterprise</option>
+        <option value="St. George Footlights">St. George Footlights</option>
+        <option value="St. George Mineral Cactus">St. George Mineral Cactus</option>
+        <option value="St. George Telegram">St. George Telegram</option>
+        <option value="St. George Union">St. George Union</option>
+        <option value="Stateline Oracle">Stateline Oracle</option>
+        <option value="Stockton Weekly Sentinel">Stockton Weekly Sentinel</option>
+        <option value="Sugar House Bulletin">Sugar House Bulletin</option>
+        <option value="Summit County Bee">Summit County Bee</option>
+        <option value="Summit County Bee and Park Record">Summit County Bee and Park Record</option>
+        <option value="Sun">Sun</option>
+        <option value="Sun Advocate">Sun Advocate</option>
+        <option value="Sun Chronicle">Sun Chronicle</option>
+        <option value="Sunset News">Sunset News</option>
+        <option value="Svenska Harolden">Svenska Harolden</option>
+        <option value="Territorial Enquirer">Territorial Enquirer</option>
+        <option value="Test Run">Test Run</option>
+        <option value="Times">Times</option>
+        <option value="Times Independent">Times Independent</option>
+        <option value="Timpanogos Times">Timpanogos Times</option>
+        <option value="Tintic Miner">Tintic Miner</option>
+        <option value="Tooele Bulletin">Tooele Bulletin</option>
+        <option value="Tooele County Chronicle">Tooele County Chronicle</option>
+        <option value="Tooele Times">Tooele Times</option>
+        <option value="Tooele Transcript">Tooele Transcript</option>
+        <option value="Tooele Transcript Bulletin">Tooele Transcript Bulletin</option>
+        <option value="Topaz Times">Topaz Times</option>
+        <option value="Tremont Times">Tremont Times</option>
+        <option value="Tremonton Leader">Tremonton Leader</option>
+        <option value="Truth">Truth</option>
+        <option value="Uintah Basin Farmer">Uintah Basin Farmer</option>
+        <option value="Uintah Basin Record">Uintah Basin Record</option>
+        <option value="Uintah Basin Standard">Uintah Basin Standard</option>
+        <option value="Uintah Chieftain">Uintah Chieftain</option>
+        <option value="Uintah Pappoose">Uintah Pappoose</option>
+        <option value="Union Vedette">Union Vedette</option>
+        <option value="University of Deseret Deaf Mute Department Student Newspaper">University of Deseret Deaf Mute
+          Department Student Newspaper</option>
+        <option value="University of Utah Student Newspapers">University of Utah Student Newspapers</option>
+        <option value="University of Utah Student Newspapers--Utah Squeal">University of Utah Student Newspapers--Utah
+          Squeal</option>
+        <option value="Utah Christian Advocate">Utah Christian Advocate</option>
+        <option value="Utah County Democrat">Utah County Democrat</option>
+        <option value="Utah County Times">Utah County Times</option>
+        <option value="Utah Daily Union">Utah Daily Union</option>
+        <option value="Utah Democrat">Utah Democrat</option>
+        <option value="Utah Enquirer">Utah Enquirer</option>
+        <option value="Utah Evening Mail">Utah Evening Mail</option>
+        <option value="Utah Farm Bureau News">Utah Farm Bureau News</option>
+        <option value="Utah Federation of Women's Clubs Review">Utah Federation of Women's Clubs Review</option>
+        <option value="Utah Freie Presse">Utah Freie Presse</option>
+        <option value="Utah Independent">Utah Independent</option>
+        <option value="Utah Journal">Utah Journal</option>
+        <option value="Utah Korrespondenten">Utah Korrespondenten</option>
+        <option value="Utah Labor News">Utah Labor News</option>
+        <option value="Utah Mining Journal">Utah Mining Journal</option>
+        <option value="Utah Nippo">Utah Nippo</option>
+        <option value="Utah Pioneer">Utah Pioneer</option>
+        <option value="Utah Pomologist">Utah Pomologist</option>
+        <option value="Utah Posten">Utah Posten</option>
+        <option value="Utah Reporter">Utah Reporter</option>
+        <option value="Utah Staats-Zeitung">Utah Staats-Zeitung</option>
+        <option value="Utah State University Eastern Student Newspapers">Utah State University Eastern Student
+          Newspapers</option>
+        <option value="Utah State University Student Newspapers">Utah State University Student Newspapers</option>
+        <option value="Utah Statesman">Utah Statesman</option>
+        <option value="Utah Valley Gazette">Utah Valley Gazette</option>
+        <option value="Utah Valley News">Utah Valley News</option>
+        <option value="Utah Valley News and The Journal">Utah Valley News and The Journal</option>
+        <option value="Utah Weekly Miner">Utah Weekly Miner</option>
+        <option value="Utah Woman's Review">Utah Woman's Review</option>
+        <option value="Utah-Nederlander">Utah-Nederlander</option>
+        <option value="Utah-Posten">Utah-Posten</option>
+        <option value="Ute Bulletin">Ute Bulletin</option>
+        <option value="Valley Tan">Valley Tan</option>
+        <option value="Valley View News">Valley View News</option>
+        <option value="Vernal Express">Vernal Express</option>
+        <option value="Voice of Sharon">Voice of Sharon</option>
+        <option value="Wasatch Canyon Reporter">Wasatch Canyon Reporter</option>
+        <option value="Wasatch County Courier">Wasatch County Courier</option>
+        <option value="Wasatch Mountain Times">Wasatch Mountain Times</option>
+        <option value="Wasatch Wave">Wasatch Wave</option>
+        <option value="Washington County News">Washington County News</option>
+        <option value="Washington Star">Washington Star</option>
+        <option value="Weber County Times">Weber County Times</option>
+        <option value="Weber Herald">Weber Herald</option>
+        <option value="Weber River Independent">Weber River Independent</option>
+        <option value="Weber State University Student Newspapers">Weber State University Student Newspapers</option>
+        <option value="Weekly Reflex">Weekly Reflex</option>
+        <option value="Weekly Sentinel">Weekly Sentinel</option>
+        <option value="West Mountain Times">West Mountain Times</option>
+        <option value="West Valley View">West Valley View</option>
+        <option value="West View">West View</option>
+        <option value="Western Light">Western Light</option>
+        <option value="Western Mineral Survey">Western Mineral Survey</option>
+        <option value="Western Mining Gazetteer">Western Mining Gazetteer</option>
+        <option value="Western Weekly">Western Weekly</option>
+        <option value="Westminster College Student Newspapers">Westminster College Student Newspapers</option>
+        <option value="Woman's Exponent">Woman's Exponent</option>
+        <option value="Wordpower">Wordpower</option>
+      </select>
+    </div>
+    <div>
+      <input id="wordInput" class="appearance-none" type="text" placeholder="Comma,Sepperated,List,Of,KeyWords"
+        aria-label="word input" value="taliban,flights">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="wordInput">
+        Words as comma seperated list
+      </label>
+    </div>
+    <div class="px-6">
+      </label>
+      <input id="dateInput" class="appearance-none" type="text" placeholder="2001-09-09" aria-label="date input"
+        value="2001-09-09">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="dateInput">
+        Date in the format YYYY-MM-DD
+    </div>
+    <div class="px-6">
+      <input id="dateIncrement" class="appearance-none" type="text" placeholder="365" aria-label="increment" value=1>
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="dateIncrement">
+        Increment amount (days)
+      </label>
+    </div>
+    <div class="px-6">
+      <input id="setTotal" class="appearance-none" type="text" placeholder="5" aria-label="Sets" value=5>
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="setTotal">
+        How many times to increment
+      </label>
+    </div>
+    <div class="px-3">
+      <input type="checkbox" id="stopWords" name="filter stop words" value="Checked">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="wordInput">
+        Filter Stopwords?
+      </label>
+    </div>
+    <div id="lineButton" class="bg-blue-500 hover:bg-blue-700 text-white px-8 py-1 font-bold rounded-md"> Go
+    </div>
+    <div id="loadingWheel" class="py-3" style="display: none;">
+      <svg class="animate-spin h-10 w-5 mr-3">
+        <rect width="25" height="10" fill="blue" />
+      </svg>
+      </button>
+    </div>
+    <div id="loadingText" class="px-2 py-5 loading" style="display: none;">
+      loading
+    </div>
+  </div>
+
+  <div class="flex">
+    <div class="px-10 py-5">
+      <svg id="line-chart" class="bg-white rounded-lg">
+        <g id="x-axis"></g>
+        <g id="y-axis"></g>
+        <g id="lines"></g>
+      </svg>
+    </div>
+    <div class="flex items-center justify-center">
+      <svg id="line-chart-info">
+      </svg>
+    </div>
+  </div>
+  <div>
+    <div class="px-5 bg-white rounded-lg" id="Barchart-For-Line">
+    </div>
+  </div>
+  <div class="flex items-center justify-center " style="fill: purple;">
+    <div id="additionalWordCharts" >
+    </div>
+  </div>
 </body>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="js/Publication.js"></script>
+<script src="js/PublicationAnalysisTest.js"></script>
+<script src="js/Map.js"></script>
+<script src="js/Timeline.js"></script>
+<script src="js/NewspaperUtils.js"></script>
+<script src="js/BarChart.js" defer></script>
+<script src="js/line.js"></script>
+<script src="js/script.js" defer></script>
+
 </html>
