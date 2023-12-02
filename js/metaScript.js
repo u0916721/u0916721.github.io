@@ -61,7 +61,7 @@ async function initData() {
   const allPapersDateRanges = await d3.json('data/allPapersDateRanges.json');
   const noDateRangeNewspapers = await d3.json('data/noDateRangeNewspapers.json');
   const allPapersCountCityDates = await d3.json('data/allPapersCountCityDates.json');
-  globalApplicationState.lineChart = new Line();
+  //globalApplicationState.lineChart = new Line();
 
   let barChart = new Barchart();
   //globalApplicationState.barChartDrawFunction = BarChart;
