@@ -54,19 +54,19 @@ d3.select("#newspaper-count-maximum-slider").attr("min", "0").attr("max", "50000
  */
 async function initData() {
   // Load the GeoJSON data for the map of Utah
-  const countyMapData = await d3.json('Data/Utah_County_Boundaries.geojson');
-  const stateBoundaryData = await d3.json('Data/Utah_State_Boundary.geojson');
-  const cityAndTownData = await d3.json('Data/Utah_City_and_Town_Locations.geojson');
-  const allNewspaperCountsWithLocationData = await d3.json('Data/AllNewspapersCountsWithLocation.json');
-  const allPapersDateRanges = await d3.json('Data/allPapersDateRanges.json');
-  const noDateRangeNewspapers = await d3.json('Data/noDateRangeNewspapers.json');
-  const allPapersCountCityDates = await d3.json('Data/allPapersCountCityDates.json');
+  const countyMapData = await d3.json('data/Utah_County_Boundaries.geojson');
+  const stateBoundaryData = await d3.json('data/Utah_State_Boundary.geojson');
+  const cityAndTownData = await d3.json('data/Utah_City_and_Town_Locations.geojson');
+  const allNewspaperCountsWithLocationData = await d3.json('data/AllNewspapersCountsWithLocation.json');
+  const allPapersDateRanges = await d3.json('data/allPapersDateRanges.json');
+  const noDateRangeNewspapers = await d3.json('data/noDateRangeNewspapers.json');
+  const allPapersCountCityDates = await d3.json('data/allPapersCountCityDates.json');
   globalApplicationState.lineChart = new Line();
 
   let barChart = new Barchart();
   //globalApplicationState.barChartDrawFunction = BarChart;
-  let newspaperData = await d3.json('Data/AllNewspapersCountsWithLocation.json');
-  let countyCityData = (await d3.json('Data/Utah_City_and_Town_Locations.geojson')).features.map((obj) => obj.properties);
+  let newspaperData = await d3.json('data/AllNewspapersCountsWithLocation.json');
+  let countyCityData = (await d3.json('data/Utah_City_and_Town_Locations.geojson')).features.map((obj) => obj.properties);
 
   //Object schema
   // {Newspaper Name, Newspaper City, Newspaper County, Newspaper count}
